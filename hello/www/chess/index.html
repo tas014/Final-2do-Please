@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link href="assets/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <section class="sidebarInactive" id="sidebar" onclick="toggleSidebar()">
+        <div>
+            <div>
+                <a href="../index.html">Home</a>
+                <a href="../profiles.html">Profiles</a>
+                <a href="../memotest/memotest.html">Memotest</a>
+                <a href="../tictactoe/index.html">Tic-Tac-Toe</a>  
+            </div>   
+            <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <div>
+                <button id="chessTime" onclick="toggleTimeMenu(); event.stopPropagation();">5 | 0</button>
+                <button type="button" onclick="reset()">Play</button>
+            </div> 
+        </div>
+    </section>
+    <div onclick="toggleTimeMenu(); event.stopPropagation();" id="timeContainer" class="timeSettingsInactive">
+        <div>
+            <div onclick="event.stopPropagation();">
+                <div class='timeSettingsContainer'>
+                    <label for="time">Initial time</label>
+                    <input type="number" id="time" value="5"> 
+                </div>
+                <div class='timeSettingsContainer'>
+                    <label for="increment">Increment per move</label>
+                    <input type="number" id="increment" value="0">
+                </div>
+            </div>
+            <p>Tap anywhere on the gray part to close</p>
+        </div>
+        
+    </div>
+    <section class="chessSection">
+        <div>
+            <div class="playerControls">
+                <button onclick="forfeit(false)"><figure><img src="assets/img/forfeit.png" alt="Forfeit"></figure></button>
+                <button id="blackDraw" onclick="drawWhite(this)"><figure><img src="assets/img/draw.png" alt="Draw"></figure></button>
+            </div>
+            
+            <div id="gamedata">
+                <div class="clock blackMove">
+                    <span id="Bclock"></span>
+                </div>
+                <table class="tabla">
+                    <tbody id="tablero">
+                        <!-- GENERADO CON JS -->
+                    </tbody>
+                </table>
+                <table class="movestable">
+                    <tbody id="moveHistory">
+                        <!-- GENERADO CON JS -->
+                    </tbody>
+                </table>
+                <div class="clock whiteMove">
+                    <span id="Wclock"></span>
+                </div>
+            </div>
+            <div class="playerControls">
+                <button onclick="forfeit(true)"><figure><img src="assets/img/forfeit.png" alt="Forfeit"></figure></button>
+                <button id="whiteDraw" onclick="drawBlack(this)"><figure><img src="assets/img/draw.png" alt="Draw"></figure></button>
+            </div>    
+        </div>
+    </section>
+    <div class="nodisplay" id="queening"></div>
+    <div class="nodisplay" id="outcome" onclick="toggleOutcomeDisplay()"></div>
+    
+</body>
+<script src="../js/userloader.js"></script>
+<script src="assets/script/game.js"></script>
+<script src="../js/sidebar.js"></script>
+</html>

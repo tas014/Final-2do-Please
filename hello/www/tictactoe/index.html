@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>TA-TE-TI</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/sidebar.css">
+</head>
+<body>
+    <main>
+        <section class="sidebarInactive" id="sidebar" onclick="toggleSidebar()">
+            <div>
+                <div>
+                    <a href="../index.html">Home</a>
+                    <a href="../profiles.html">Profiles</a>
+                    <a href="../memotest/memotest.html">Memotest</a>
+                    <a href="../chess/index.html">Chess</a>  
+                </div>   
+                <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            </div>
+        </section>
+
+        <audio id="firstAudio">
+            <source src="sounds/jugadoruno.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="secondAudio">
+                <source src="sounds/jugadordos.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="winAudio">
+                <source src="sounds/winner.mp3" type="audio/mpeg">
+        </audio>
+
+        <div>
+            <h1 class="glitch">Tic-Tac-Toe</h1>
+            <p>Line up three of your chips to win!</p>
+            <div>     
+                <table>
+                    <tbody id="tabla">
+                        <!-- generado con js -->
+                    </tbody>
+                </table>
+                <div class="scores horiflex">
+                    <div>
+                        <img id="player1Img" alt="Player 1">
+                        <span class="percenter" id="p1">Jugador Uno</span>
+                        <span id="p1Score">0</span>
+                    </div>
+                    <div>
+                        <img id="player2Img" alt="Player 2">
+                        <span class="percenter" id="p2">Jugador Dos</span>
+                        <span id="p2Score">0</span>
+                    </div>
+                    <button onclick="reset()" class="fondoGradiente">Restart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../js/userloader.js"></script>
+    <script src="js/script.js"></script>
+    <script src="../js/sidebar.js"></script>
+</body>
+</html>

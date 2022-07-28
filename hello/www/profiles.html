@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/users.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="centerer vertiflex aligncenter">
+        <div class="horiflex justifycenter graybackground aligncenter generalwidth">
+            <h1>Users</h1>
+            <button class="createUserButton" onclick="createUser()">+</button>
+        </div>
+        <div id="userlist" class="vertiflex aligncenter">
+            <!-- generado con javascript -->
+        </div>
+        <button class="resetButton" onclick="confirmReset()">Reset all users</button>
+        <div id="userCreator" class="nodisplay">
+            <div class="vertiflex justifycenter aligncenter formbackground posrel">
+                <h3 class="creatortitle">Create User</h3>
+                <button id="endme" onclick="endme()">x</button>
+                <form class="vertiflex justifycenter aligncenter">
+                    <div class="vertiflex">
+                        <label for="name">Name</label>
+                        <input id="name" type="text">
+                    </div>
+                    <div class="vertiflex">
+                        <label for="nick">Nickname</label>
+                        <input id="nick" type="text">
+                    </div>
+                    <div class="vertiflex justifybetween">
+                        <label for="Image">Profile picture</label>
+                        <div class="autowidth vertiflex aligncenter justifycenter">
+                            <img id="leimg" src="img/defaultUser.png" alt="imagen de usuario">
+                        </div>
+                        <div class="autowidth justifybetween horiflex">
+                            <button class="buttonCleanser" type="button" id="pImage">Take a picture</button>
+                            <button class="buttonCleanser" type="button" id="lImage">Upload file</button>
+                        </div>
+                    </div>
+                </form>
+                <button id="confirmer" class="creatorconfirm buttonCleanser" style="color: black" onclick="verifyUser()" type="submit">Confirm</button>
+            </div>
+        </div>
+        <div id="reseter" class="nodisplay">
+            <div class="vertiflex justifycenter aligncenter formbackground">
+                <h5>This will eliminate all existing users. Are you sure you want to reset?</h5>
+                <div class="horiflex justifyaround resetwidth">
+                    <button onclick="cancelReset()">No</button>
+                    <button onclick="resetusers()">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/users.js"></script>
+</body>
+</html>

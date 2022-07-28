@@ -1,0 +1,76 @@
+.sidebarInactive > div {
+    display: none;
+}
+
+.sidebarInactive {
+    position: fixed;
+    width: 1%;
+    left: 0px;
+    top: 30%;
+    padding: 40% 2%;
+    height:1vh;
+    background-color: rgba(112, 102, 102, 0.952);
+    border-top-right-radius: 3em;
+    border-bottom-right-radius: 3em;
+    box-shadow: 4px 1px 4px rgba(110, 107, 107, 0.486);
+}
+
+.sidebarActive {
+    position: absolute;
+    top: 0px;
+    left:0px;
+    z-index:2;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(43, 42, 42, 0.507);
+    display: flex;
+    justify-content: start;
+    margin-top: 0%;
+    font-size: 12px;
+}
+
+.sidebarActive > div:first-of-type {
+    background-color: rgba(233, 233, 233, 0.932);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 100vh;
+    z-index: 3;
+}
+
+.sidebarActive div:first-of-type > div:first-of-type {
+    width: 80%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: space-around;
+}
+
+.sidebarActive a {
+    text-decoration: none;
+    font-size: 1em;
+    padding: 2% 5%;
+    margin-bottom: 5%;
+}
+
+@media (orientation: landscape) {
+    .sidebarInactive {
+        top: 18%;
+        padding: 15% 1%;
+    }
+
+    .sidebarActive > div:first-of-type {
+        width: 30%;
+    }
+
+    .sidebarActive > div:first-of-type {
+        padding: 5% 0%;
+    }
+
+    .sidebarActive div:first-of-type > div:first-of-type {
+        height: 50vh;
+    }
+}

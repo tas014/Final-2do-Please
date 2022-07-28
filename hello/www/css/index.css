@@ -1,0 +1,566 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+/* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+/*}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+/*    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+/*    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+/*    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:12px;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+/*    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-right, 0px);
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+/*.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+/*    position:absolute;             /* position in the center of the screen */
+/*    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+/*    width:225px;                   /* text area width */
+/*    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+/*    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+
+/* Landscape layout (with min-width) */
+/*@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+/*        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+/*    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* ----------------------------------------------------------------------------------------------------------- */
+
+@keyframes blink {
+    0% {
+        border-color: #27DEF2;
+        color: #27DEF2;
+	}
+	50% {
+		border-color: #FFFF05;
+        color: #FFFF05;
+	}
+	100% {
+		border-color: #F205B3;
+        color: #F205B3;
+	}
+}
+
+h1{
+    color: #FFFF05;
+    text-align: center;
+    animation: blink 3s ease infinite;
+    animation-direction: alternate;
+    font-size: 2em;
+    padding: 5%;
+    line-height: 30px;
+    width: 100%;
+}
+
+body{
+    font-family: 'Press Start 2P', cursive;
+    background-color: black;
+    max-height: 100vh;
+    color: white;
+    line-height: 15px;
+    font-size: 12px;
+}
+
+h3 {
+    width: 50%;
+    padding: 0.3em 0;
+    margin:0
+}
+
+h4 {
+    font-size: 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+img {
+    width: 7em;
+}
+
+section:not(#sidebar) {
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+    background-color: black;
+    min-width: 100vw;
+    padding: 1em 0;
+}
+
+nav {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin-right: 5%;
+}
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+thead {
+    width: 100%;
+    background-color: whitesmoke;
+    min-height: 10vh;
+    align-content: center;
+}
+
+tbody {
+    background-color: snow;
+    min-height: 50vh;
+    width: 100%;
+}
+
+a {
+    font-size: 1.6em;
+}
+
+tr {
+    text-align: center;
+    width: 100%;
+    min-height: 10vh;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3%;
+    margin-top: 4%;
+}
+
+label {
+    margin: 2% 0;
+}
+
+input {
+    width: 100%;
+}
+
+textarea {
+    min-height: 20vh;
+    margin-bottom: 1em;
+}
+
+strong {
+    color:white;
+    text-align: center;
+    margin-top: 2%;
+}
+
+h3 {
+    text-align: center;
+}
+
+/* ---------------------------------------------------  IDS  --------------------------------------------------*/
+#parent {
+    max-width: 2800px;
+}
+
+#currentProfile {
+    min-height: 20vh;
+    background-color: snow;
+    width: 50%;
+}
+
+/* --------------------------------------------------- CLASSES ------------------------------------------------*/
+.white {
+    color: white;
+}
+
+.mainlogo {
+    margin-left: 5%;
+}
+
+.vertiflex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullcenter {
+    justify-content: center;
+    align-items: center;
+}
+
+.shareScreen {width: 45%;}
+
+.horiflex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nodisplay {
+    display: none;
+}
+
+.imgdisplay {
+    display: block;
+    width: 15%;
+}
+
+.nickdisplay {
+    display: block;
+    width:50%;
+}
+
+.scoredisplay {
+    display: block;
+    width: 25%;
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 65%;
+    min-height: 30vh;
+}
+
+.notcenterflex {
+    align-items: flex-start;
+    width: 50%;
+}
+
+.adjustheight {
+    min-height: 30vh;
+}
+
+.formpair {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.meImage {
+    border-radius: 50%;
+    width: 10em;
+    object-fit: cover;
+}
+
+.customwidth {
+    width: 65%;
+}
+
+.players {
+    width: 35%;
+}
+
+.playerimage {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 85%;
+    border-style: dashed;
+    border-color: whitesmoke;
+    border-width: 2px;
+}
+
+.players button {
+    box-sizing:border-box ;
+    text-decoration: none;
+    border-style: dotted;
+    border-color: #FFFF05;
+    border-width: 2px;
+    background-color: transparent;
+    font-size: 1em;
+    color:#FFFF05;
+    font-family: 'Press Start 2P', cursive;
+    padding: 10%;
+}
+
+.mainimg {
+    width: 40%;
+    padding: 1%;
+    background-color: whitesmoke;
+    border-style: none;
+    border-color: black;
+    border-width: 0.2em;
+}
+
+.even {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.specialmargin {
+    margin-top: 1%
+}
+
+.leaderboarditem {
+    display: flex;
+    width: 100%;
+    min-height: 12vh;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgrey;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    border-bottom-width: 2px;
+}
+
+.leaderboardimage {
+    border-radius: 50%;
+        width: 4em;
+        height: 4em;
+        object-fit: cover;
+}
+
+.leaderboardnick {
+    width: 30%;
+    text-align: center;
+}
+
+.leaderboardscore {
+    width: 40%;
+    text-align: center;
+}
+
+.currentimg {
+    border-radius: 50%;
+        width: 10em;
+        height: 10em;
+        object-fit: cover;
+}
+
+#profileIMG {
+    border-radius: 50%;
+        width: 10em;
+        height: 10em;
+        object-fit: cover;
+}
+
+.currentnick {
+    width: 100%;
+    text-align: center;
+}
+
+.players > div {
+    margin-bottom: 15%;
+}
+
+.players > div h4 {
+    margin-top: 10%;
+}
+
+.versus {
+    font-size: 2em;
+    color: #FFFF05;
+    animation: blink 3s ease infinite;
+    animation-direction: alternate;
+}
+
+.versusSection {
+    box-sizing: border-box;
+    padding: 5%;
+    border-top-style: dashed;
+    border-color: #F205B3;
+    border-width: 2px;
+    padding-top: 10%;
+}
+
+.gamesSection, .gamesSection > div, main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gamesSection {
+    flex-direction: column;
+    margin-top: 15%;
+    margin-bottom: 10% ;
+}
+
+.gamesSection > div {
+    width: 100%;
+}
+
+.gamesSection >div:nth-of-type(2){
+    justify-content: space-evenly;
+}
+
+.gamesSection img {
+    border-radius: 50%;
+    width: 25%;
+}
+
+main {
+    height: 100vh;
+    flex-direction: row;
+}
+
+@media (orientation:landscape) {
+    html {font-size: 14px;}
+
+    .versusSection {
+        padding-top: 0%;
+    }
+
+    section:not(#sidebar) {
+        width: 45%;
+    }
+
+    .gamesSection{
+        margin: 0%;
+    }
+
+    .versusSection {
+        border-top-style: none;
+        border-left-style: dashed;
+        border-left-width: 2px;
+    }
+
+    main > div {
+        margin-bottom: 5%;
+    }
+}

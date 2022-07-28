@@ -1,0 +1,285 @@
+
+/*------------------------ RESET CSS ------------------------*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, caption,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* -------------------------------------------------------------------------------------------------------------- */
+
+@keyframes blink {
+    0% {
+        border-color: #27DEF2;
+        color: #27DEF2;
+	}
+	50% {
+		border-color: #FFFF05;
+        color: #FFFF05;
+	}
+	100% {
+		border-color: #F205B3;
+        color: #F205B3;
+	}
+}
+
+h1{
+    color: #FFFF05;
+    text-align: center;
+    animation: blink 3s ease infinite;
+    animation-direction: alternate;
+    font-size: 2em;
+    margin-bottom: 5%;
+}
+
+table{
+    border-collapse: collapse;
+    width: 50%;
+    vertical-align:middle;
+    margin-top: 10%
+}
+
+header {
+	min-height: 15vh;
+    background-color: black;
+    margin-top: 3%;
+}
+
+.totalcenter {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.totalcenter a {
+	text-decoration: none;
+	color:white;
+	font-size: 2em;
+}
+
+.percenter {
+    text-align: center;
+    width: 90%;
+    min-height:4vh;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.avoid {
+    display: none;
+}
+
+b {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: white;
+}
+
+td{
+    border-style: dotted;
+    border-width: 0.25rem;
+    width: 6rem;
+    height: 6rem;
+    text-align: center;
+    font-size: 3rem;
+    border-color: rgb(255, 255, 255);
+}
+
+td:hover{
+    background-color: #202020
+}
+
+/*FORMATO TABLA*/
+.cruz, #p1{
+    color: #F205B3;
+}
+
+.circulo, #p2{
+    color: #27DEF2;
+}
+
+.combinacionGanadora{
+    /*animation: blink 1s ease infinite;
+    animation-direction: alternate;*/
+    color: #FFFF05
+}
+.restantes{
+    font-size: 1.5rem;
+    opacity: 0.2;
+}
+
+/*----------------------------------------------------------*/
+
+
+body{
+    font-family: 'Press Start 2P', cursive;
+    background-color: black;
+    max-height: 100vh;
+    line-height: 15px;
+}
+
+
+/*----------------------------------------------------------*/
+
+h2{
+    min-width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    height: 1.5rem;
+    margin-top: 5%;
+}
+
+p{
+    margin-bottom: 3%;
+    line-height: 140%;
+    text-align: center;
+}
+
+.vertiflex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.horiflex {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: space-between;
+    width: 90%;
+    height: auto;
+    margin-top:4%;
+}
+
+.scores {
+    margin-top: 10%;
+}
+
+.scores > div {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 45%;
+    min-height: 20vh;
+}
+
+.scores div img {
+    border-radius: 50%;
+    width: 65%;
+    margin-bottom: 10%;
+    border-style: dashed;
+    border-width: 2px;
+}
+
+.sidebarButtonTTT {
+    width: 80%;
+    border-style: solid;
+    border-radius: 3%;
+    padding: 3% 5%;
+}
+
+.fondoGradiente {
+    width: 20em; /* puede ir al lado del cuadro*/
+    margin-top: 7%;
+     padding: 1.2rem 1rem; 
+     border-style: dotted;
+     border-width: 0.25rem;
+     font-family: 'Press Start 2P', cursive;
+     background-color: black;
+     border-color: #FFFF05;
+     color: #FFFF05;
+}
+main {margin-top: 10%;}
+
+html {font-size: 12px;}
+
+table {width: 85%;}
+
+@media (orientation: landscape) { 
+    main{
+     margin-top:3%;
+    }
+
+	p + div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+		justify-content: space-between;
+		margin: 0% 10%;
+	}
+	.scores{
+		width: 45%;
+		margin-top: 0%;
+	}
+	td {
+		height: 1.7em;
+		width: 1.5em;
+	}
+        
+    table {
+        width: 40%;
+        margin-top: 0%;
+    }
+    p {
+        color: white;
+    }
+    h1 {
+        margin-bottom: 2%;
+    }
+}
+
+@media (orientation: portrait) {
+    div:not(#sidebar div){
+        height: auto;
+        color: white;/*#ff7159;*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
