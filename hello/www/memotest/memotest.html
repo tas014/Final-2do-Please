@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link href="../css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Memotest</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--MOBILE-->
+</head>
+
+<body>
+    <section class="sidebarInactive" id="sidebar" onclick="toggleSidebar()">
+        <div>
+            <div>
+                <a href="../index.html">Home</a>
+                <a href="../profiles.html">Profiles</a>
+                <a href="../chess/index.html">Chess</a>
+                <a href="../tictactoe/index.html">Tic-Tac-Toe</a>  
+            </div>   
+            <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <select id="pick" onclick="event.stopPropagation()" class="options">
+                    <option value="4">Easy</option>
+                    <option value="5">Medium</option>
+                    <option value="6">Hard</option>
+                </select>
+                <button onclick="getMatrixSize()">Play</button>
+        </div>
+    </section>
+
+    <div class="centerme">
+        <h1 class="portraitTitles">Memotest</h1>
+        <p class="portraitTitles">Find all the pairs to win!</p>
+        <div id="container">
+            <div>
+                <div class="vertiflex">
+                    <table class="distributeElements">
+                        <tbody id="tablero">
+
+                        </tbody>
+                    </table>
+                    <!-- <table class="scoreboardtable nodisplay">
+                        <thead>
+                            <td>Tabla de puntuacion</td>
+                        </thead>
+                        <tbody id="scoreboard">
+                            <tr class="horiflex">
+                                <td class="profileimage"></td>
+                                <td class="name">Apodo</td>
+                                <td class="score">Puntaje</td>
+                            </tr>
+                        </tbody>
+                    </table>-->
+                </div>
+            </div>
+            <div class="scoredisplay">
+                <div>
+                    <h1 class="landscapeTitles">Memotest</h1>
+                    <p class="landscapeTitles">Pair all the animals to win!</p>
+                </div>
+                <div>
+                    <figure><img src="" alt="Current player image" id="playerImg"></figure>
+                    <span id="player">is playing...</span> 
+                </div>  
+            </div>
+        </div>
+<script src="../js/userloader.js"></script>      
+<script src="../js/sidebar.js"></script>
+<script src="memotest.js"></script>
+
+</body>
+</html>
