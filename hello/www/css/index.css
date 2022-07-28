@@ -491,6 +491,10 @@ h3 {
 
 .players > div h4 {
     margin-top: 10%;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsiss;
+    text-align: center;
 }
 
 .versus {

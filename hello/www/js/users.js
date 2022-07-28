@@ -156,7 +156,7 @@ function modifyUser (num) {
     let nickholder=document.getElementById("nick");
     let imgholder=document.getElementById("leimg");
     if (users!=null) {
-        if (nameholder.value!="" & nickholder.value!="") {
+        if (nameholder.value!="" && nickholder.value!="") {
         users[num].name=nameholder.value;
         users[num].nick=nickholder.value;
         users[num].profilepic=imgholder.src;

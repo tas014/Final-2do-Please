@@ -1,5 +1,5 @@
 var jugador=-1;
-var gameStillOn=true;
+var gameStillOn=false;
 var a1,a2,a3,b1,b2,b3,c1,c2,c3;
 var casilleros = [[0, 0, 0],[0, 0, 0],[0, 0, 0]];
 var casillerosid = ["a","b","c"]
@@ -80,7 +80,7 @@ function updateScores() {
 
 
 function empate (){
-    document.getElementById("info").innerHTML="¡Empate!";
+    //document.getElementById("info").innerHTML="¡Empate!";
     casilleros = [[0, 0, 0],[0, 0, 0],[0, 0, 0]];
     gameStillOn = false;
 }
@@ -219,14 +219,16 @@ function drawer (id) {
 
 
 function reset(){
-    saver=[];
-    casilleros = [[0, 0, 0],[0, 0, 0],[0, 0, 0]];
-    createTable();
-    gameStillOn= true;
-    //document.getElementById("info").innerHTML="";
-    saveGame();
-    jugador=-1;
-    switchSides();
+    if (!gameStillOn) {
+        saver=[];
+        casilleros = [[0, 0, 0],[0, 0, 0],[0, 0, 0]];
+        createTable();
+        gameStillOn= true;
+        //document.getElementById("info").innerHTML="";
+        saveGame();
+        jugador=-1;
+        switchSides();
+    }
 }
 
 function switchSides() {
@@ -254,6 +256,7 @@ function saveGame() {
 
 function loadGame() {
     let fetchedData = JSON.parse(localStorage.getItem("TicTacToeData"));
+    gameStillOn + false;
 
     if(fetchedData != null) {
         casilleros = fetchedData.board;
